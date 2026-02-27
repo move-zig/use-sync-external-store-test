@@ -1,7 +1,17 @@
 import type { Metadata } from 'next';
+// eslint-disable-next-line camelcase
+import { Open_Sans } from 'next/font/google';
 import Link from 'next/link';
 
 import styles from './layout.module.scss';
+
+import './style.scss';
+
+const openSans = Open_Sans({
+  subsets: [ 'latin' ],
+  display: 'swap',
+  variable: '--font-open-sans',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -10,15 +20,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={openSans.variable}>
       <body>
-        <nav style={{ display: 'flex', flexDirection: 'column' }}>
-          <Link href="/">Home</Link>
-          <Link href="/tear">Tear Test</Link>
-          <Link href="/speed">Speed Test</Link>
+        <nav className={styles.nav}>
+          <div className="container">
+            <ul>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/tear">Tear Test</Link></li>
+              <li><Link href="/speed">Speed Test</Link></li>
+            </ul>
+          </div>
         </nav>
         <main>
-          <h1><span className={styles.mono}>useSyncExternalStore</span> vs. <span className={styles.mono}>useEffect</span></h1>
+          <div className="container">
+            <h1><span className={styles.mono}>useSyncExternalStore</span> vs. <span className={styles.mono}>useEffect</span></h1>
+          </div>
           {children}
         </main>
       </body>
