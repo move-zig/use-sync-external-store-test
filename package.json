@@ -12,7 +12,7 @@
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "use-event-listener": "file:../use-event-listener"
+    "use-window-listener": "^1.0.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^5.9.0",

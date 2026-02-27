@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useWindowListener } from 'use-event-listener';
+import { useWindowListener } from 'use-window-listener';
 
 import styles from './reader.module.scss';
 

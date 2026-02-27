@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useSyncExternalStoreWindowListener } from 'use-event-listener';
+import { useSyncExternalStoreWindowListener } from 'use-window-listener';
 
 import styles from './reader.module.scss';
 

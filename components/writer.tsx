@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import { useEffect } from 'react';
-import { useSyncExternalStoreWindowListener } from 'use-event-listener';
+import { useSyncExternalStoreWindowListener } from 'use-window-listener';
 
 interface Props {
   onChange: (width: number | undefined) => void;
