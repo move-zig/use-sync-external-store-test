@@ -13,7 +13,11 @@ const valueSelector = (w: Window) => w.innerWidth;
 
 export const ReaderOld: FC<Props> = ({ expected }) => {
   const width = useWindowListener('resize', valueSelector);
-  const match = width === expected;
+  const w = type of window === 'undefined'
+    ? undefined
+    : window.innerWidth;
+
+  const match = width === w;
 
   return (
     <div className={`${styles.box} ${match ? styles.match : styles.mismatch}`}>
