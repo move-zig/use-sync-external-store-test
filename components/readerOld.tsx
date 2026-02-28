@@ -13,7 +13,7 @@ const valueSelector = (w: Window) => w.innerWidth;
 
 export const ReaderOld: FC<Props> = ({ expected }) => {
   const width = useWindowListener('resize', valueSelector);
-  const w = type of window === 'undefined'
+  const w = typeof window === 'undefined'
     ? undefined
     : window.innerWidth;
 
