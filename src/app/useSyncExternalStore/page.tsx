@@ -13,11 +13,12 @@ const useSyncExternalStorePage: PageComponent = () => {
   return (
     <div className="container">
       <h1>The <span className="font-mono">useSyncExternalStore</span> Hook</h1>
-      <p>React 18 released with a new hook called <span className="font-mono">useSyncExternalStore</span> for the purpose of subscribing to an external store.</p>
+      <p>React 18 released with a new hook called <span className="font-mono">useSyncExternalStore</span> for the purpose of subscribing to an <em>external store</em>.</p>
       <h2>What Is an External Store?</h2>
+      <p>Some state stored outside of React, e.g.,</p>
       <ul>
-        <li>Some state stored outside of react</li>
-        <li>A browser API</li>
+        <li>Third-party state management library</li>
+        <li>A mutable value or event from browser APIs</li>
       </ul>
       <h2>Parameters</h2>
       <p>Two required parameters and one optional one. All three should be referntially stable.</p>
