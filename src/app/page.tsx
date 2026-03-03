@@ -25,7 +25,12 @@ const HomePage: PageComponent = () => (
 
     <h2>So What Do We Do?</h2>
     <p>If we don't call <span className="font-mono">setWidth</span> we won't know the screen width until a resize event is fired.</p>
-    <CodeBlock code={solutions} />
+    <h3>Avoid a Synchronous Call</h3>
+    <CodeBlock code={solution1} />
+    <p>But it's a hack.</p>
+    <h3>Silence the Error</h3>
+    <CodeBlock code={solution2} />
+    <h3>Use a Different Hook</h3>
     <p><Link href="/useSyncExternalStore" className="link link-primary">useSyncExternalStore</Link></p>
   </div>
 );
@@ -49,9 +54,9 @@ useEffect(() => {
   return () => { window.removeEventListener('resize', handler); };
 }, []);`;
 
-const solutions = `startTransition(() => setWidth(window.innerWidth));
+const solution1 = `startTransition(() => setWidth(window.innerWidth));`;
 
-// eslint-disable-next-line react-hooks/set-state-in-effect
+const solution2 = `// eslint-disable-next-line react-hooks/set-state-in-effect
 setWidth(window.innerWidth);`;
 
 const errorRenderer = createErrorRenderer([ { row: 3, children: { start: 2, end: 2 } } ]);
