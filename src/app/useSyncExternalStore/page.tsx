@@ -21,7 +21,7 @@ const useSyncExternalStorePage: PageComponent = () => {
         <li>From a mutable value or an event from a browser API</li>
       </ul>
       <h2>Parameters</h2>
-      <p>Two required parameters and one optional one. All three should be referntially stable.</p>
+      <p>Two required parameters and one optional one. All three should be <em>referentially stable</em>.</p>
       <CodeBlock code={typeDefinition} />
       <h3>Parameter 1: <span className="font-mono">subscribe</span> Function</h3>
       <CodeBlock code={subscribeCode} />
