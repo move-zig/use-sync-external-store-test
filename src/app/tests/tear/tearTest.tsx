@@ -25,6 +25,7 @@ export const TearTest: FC<Props> = ({ defaultCount = 0 }) => {
   return (
     <>
       <Form count={count} setCount={setCount} />
+      <h2>Showing {count} pair{count !== 1 ? 's' : ''} of listeners...</h2>
       <div className="cellGrid">
         {Array.from(
           { length: count * 2 },

@@ -31,7 +31,7 @@ export const SpeedTest: FC<Props> = ({ defaultCount = 0 }) => {
   return (
     <>
       <Form count={count} setCount={setCount} type={type} onTypeToggle={handleToggle} />
-      <h2>Showing {type}...</h2>
+      <h2>Showing {count} {type} listener{count !== 1 ? 's' : ''}...</h2>
       <Profiler id={type}>
         <div className="cellGrid">
           {Array.from(
