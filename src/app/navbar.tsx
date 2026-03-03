@@ -37,8 +37,8 @@ export const Navbar: FC = () => {
               <details ref={detailsRef}>
                 <summary>Tests</summary>
                 <ul className="p-2 bg-base-100 w-40 z-1">
-                  <li><Link href="/tear">Tearing</Link></li>
-                  <li><Link href="/speed">Speed</Link></li>
+                  <li><Link href="/tests/tear">Tearing</Link></li>
+                  <li><Link href="/tests/speed">Speed</Link></li>
                 </ul>
               </details>
             </li>
@@ -53,8 +53,8 @@ export const Navbar: FC = () => {
           <ul tabIndex={-1} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             <li><Link onClick={handleLinkClick} href="/useSyncExternalStore">useSyncExternalStore</Link></li>
             <li><Link onClick={handleLinkClick} href="/hooks">Hooks</Link></li>
-            <li><Link onClick={handleLinkClick} href="/tear">Tearing Test</Link></li>
-            <li><Link onClick={handleLinkClick} href="/speed">Speed Test</Link></li>
+            <li><Link onClick={handleLinkClick} href="/tests/tear">Tearing Test</Link></li>
+            <li><Link onClick={handleLinkClick} href="/tests/speed">Speed Test</Link></li>
             <li><Link onClick={handleLinkClick} href="/library">Library</Link></li>
           </ul>
         </div>
