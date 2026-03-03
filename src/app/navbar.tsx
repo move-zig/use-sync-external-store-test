@@ -42,7 +42,7 @@ export const Navbar: FC = () => {
                 </ul>
               </details>
             </li>
-            <li><Link href="/library">use-window-listener</Link></li>
+            <li><Link href="/library">Library</Link></li>
           </ul>
         </div>
 
