@@ -31,7 +31,7 @@ const HomePage: PageComponent = () => (
     <h3>Silence the Error</h3>
     <CodeBlock code={solution2} />
     <h3>Use a Different Hook</h3>
-    <p><Link href="/useSyncExternalStore" className="link link-primary">useSyncExternalStore</Link></p>
+    <p><Link href="/theHook" className="link link-primary">useSyncExternalStore</Link></p>
   </div>
 );
 

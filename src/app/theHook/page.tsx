@@ -6,7 +6,7 @@ import type { PageComponent } from '@/src/serverComponent';
 
 export const metadata: Metadata = {
   title: 'UseSyncExternalStore Hook',
-  alternates: { canonical: '/useSyncExternalStore' },
+  alternates: { canonical: '/theHook' },
 };
 
 const useSyncExternalStorePage: PageComponent = () => {
@@ -31,7 +31,7 @@ const useSyncExternalStorePage: PageComponent = () => {
       <CodeBlock code={getServerSnapshotCode} />
       <h2>Putting it All Together</h2>
       <CodeBlock code={allTogether} showLineNumbers />
-      <p>Or better yet, make a <Link href="/hooks">custom hook</Link>.</p>
+      <p>Or better yet, make a <Link href="/customHooks">custom hook</Link>.</p>
     </div>
   );
 };
