@@ -13,19 +13,22 @@ interface Props {
   showLineNumbers?: boolean;
   renderer?: (props: rendererProps) => React.ReactNode;
   lineProps?: HTMLProps<HTMLElement> | lineTagPropsFunction;
+  className?: string;
 }
 
-export const CodeBlock: FC<Props> = ({ code, language = 'typescript', renderer, lineProps, showLineNumbers }) => {
+export const CodeBlock: FC<Props> = ({ code, language = 'typescript', renderer, lineProps, showLineNumbers, className }) => {
   return (
-    <SyntaxHighlighter
-      showLineNumbers={showLineNumbers}
-      language={language}
-      style={vscDarkPlus}
-      codeTagProps={{ className: styles.code }}
-      renderer={renderer}
-      lineProps={lineProps}
-    >
-      {code}
-    </SyntaxHighlighter>
+    <div className={className}>
+      <SyntaxHighlighter
+        showLineNumbers={showLineNumbers}
+        language={language}
+        style={vscDarkPlus}
+        codeTagProps={{ className: styles.code }}
+        renderer={renderer}
+        lineProps={lineProps}
+      >
+        {code}
+      </SyntaxHighlighter>
+    </div>
   );
 };

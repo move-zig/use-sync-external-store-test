@@ -6,6 +6,7 @@ import type { PageComponent } from '@/src/serverComponent';
 
 export const metadata: Metadata = {
   title: 'UseSyncExternalStore Hook',
+  alternates: { canonical: '/useSyncExternalStore' },
 };
 
 const useSyncExternalStorePage: PageComponent = () => {

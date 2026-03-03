@@ -9,9 +9,9 @@ const HomePage: PageComponent = () => (
     <h1>Listening for DOM Events</h1>
     <p>Listen for:</p>
     <ul>
-      <li>resize events on <strong className="font-mono">window</strong> and use <strong className="font-mono">innerWidth</strong></li>
-      <li>scroll events on <strong className="font-mono">window</strong> and use <strong className="font-mono">scrollY</strong></li>
-      <li>change events on an MQL and use <strong className="font-mono">match</strong></li>
+      <li>resize events on <strong className="font-mono">window</strong> and use <strong className="font-mono">.innerWidth</strong></li>
+      <li>scroll events on <strong className="font-mono">window</strong> and use <strong className="font-mono">.scrollY</strong></li>
+      <li>change events on a MediaQueryList and use <strong className="font-mono">.match</strong></li>
     </ul>
 
     <h2>Setting the Initial State</h2>

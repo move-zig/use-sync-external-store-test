@@ -26,10 +26,10 @@ export const Navbar: FC = () => {
   return (
     <nav className="navbar bg-base-100 shadow-sm">
       <div className="container flex items-center justify-between">
-        <div className="md:navbar-start">
-          <Link href="/"><span className="font-bold"><span className="font-mono">useSyncExternalStore</span> vs. <span className="font-mono">useEffect</span></span></Link>
+        <div className="inline-flex">
+          <Link href="/"><span className="font-bold font-mono">useSyncExternalStore</span></Link>
         </div>
-        <div className="navbar-end hidden md:flex">
+        <div className="hidden md:inline-flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link href="/useSyncExternalStore">useSyncExternalStore</Link></li>
             <li><Link href="/hooks">Hooks</Link></li>
@@ -42,7 +42,7 @@ export const Navbar: FC = () => {
                 </ul>
               </details>
             </li>
-            <li className="hidden lg:list-item"><Link href="/library">use-window-listener</Link></li>
+            <li><Link href="/library">use-window-listener</Link></li>
           </ul>
         </div>
 

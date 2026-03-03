@@ -11,6 +11,7 @@ const useWidthSyncCode = fs.readFileSync(path.join(process.cwd(), 'src/hooks/use
 
 export const metadata: Metadata = {
   title: 'Custom Hooks',
+  alternates: { canonical: '/hooks' },
 };
 
 const HooksPage: PageComponent = () => (

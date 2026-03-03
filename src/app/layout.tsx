@@ -15,8 +15,8 @@ const sansSerif = SansSerif({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - useSyncExternalStore vs. useEffect',
-    default: 'useSyncExternalStore vs. useEffect',
+    template: '%s - The useSyncExternalStore Hook',
+    default: 'The useSyncExternalStore Hook',
   },
   description: 'Demonstrating a use case for using the useSyncExternalStore hook',
 };

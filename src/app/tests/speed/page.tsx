@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 
-import { TearTest } from './tearTest';
+import { SpeedTest } from './speedTest';
 import type { PageComponent } from '@/src/serverComponent';
 
 export const metadata: Metadata = {
-  title: 'Tear Test',
+  title: 'Speed Test',
+  alternates: { canonical: '/tests/speed' },
 };
 
 const TearTestPage: PageComponent = async props => {
@@ -17,8 +18,8 @@ const TearTestPage: PageComponent = async props => {
 
   return (
     <div className="container">
-      <h1>Tear Test</h1>
-      <TearTest defaultCount={defaultCount} />
+      <h1>Speed Test</h1>
+      <SpeedTest defaultCount={defaultCount} />
     </div>
   );
 };
