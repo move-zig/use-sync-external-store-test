@@ -76,14 +76,6 @@ footer {
   padding-block: 2rem;
 }
 
-// .container {
-//   width: 100%;
-//   max-width: 1200px;
-//   padding-inline: var(--width-gap);
-//   margin-inline: auto;
-// }
-
-
 .cellGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

@@ -5,7 +5,7 @@ import { Footer } from './footer';
 import { Navbar } from './navbar';
 import { operatorMono } from '@/src/fonts';
 import type { LayoutComponent } from '@/src/serverComponent';
-import '@/src/style.scss';
+import '@/src/style.css';
 
 const sansSerif = SansSerif({
   subsets: [ 'latin' ],
