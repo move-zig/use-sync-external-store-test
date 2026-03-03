@@ -31,8 +31,8 @@ export const Navbar: FC = () => {
         </div>
         <div className="hidden md:inline-flex">
           <ul className="menu menu-horizontal px-1">
-            <li><Link href="/useSyncExternalStore">useSyncExternalStore</Link></li>
-            <li><Link href="/hooks">Hooks</Link></li>
+            <li><Link href="/theHook">The Hook</Link></li>
+            <li><Link href="/customHooks">Custom Hooks</Link></li>
             <li>
               <details ref={detailsRef}>
                 <summary>Tests</summary>
@@ -51,8 +51,8 @@ export const Navbar: FC = () => {
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block h-5 w-5 stroke-current"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /> </svg>
           </button>
           <ul tabIndex={-1} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><Link onClick={handleLinkClick} href="/theHook">useSyncExternalStore</Link></li>
-            <li><Link onClick={handleLinkClick} href="/customHooks">Hooks</Link></li>
+            <li><Link onClick={handleLinkClick} href="/theHook">The Hook</Link></li>
+            <li><Link onClick={handleLinkClick} href="/customHooks">Custom Hooks</Link></li>
             <li><Link onClick={handleLinkClick} href="/tests/tear">Tearing Test</Link></li>
             <li><Link onClick={handleLinkClick} href="/tests/speed">Speed Test</Link></li>
             <li><Link onClick={handleLinkClick} href="/library">Library</Link></li>
