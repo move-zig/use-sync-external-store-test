@@ -17,8 +17,8 @@ const useSyncExternalStorePage: PageComponent = () => {
       <h2>What Is an External Store?</h2>
       <p>Some state stored outside of React, e.g.,</p>
       <ul>
-        <li>Third-party state management library</li>
-        <li>A mutable value or event from browser APIs</li>
+        <li>From a third-party state management library</li>
+        <li>From a mutable value or an event from a browser API</li>
       </ul>
       <h2>Parameters</h2>
       <p>Two required parameters and one optional one. All three should be referntially stable.</p>
