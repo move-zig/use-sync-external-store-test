@@ -1,8 +1,9 @@
 'use client';
 
-import type { ChangeEventHandler, FC } from 'react';
+import type { FC } from 'react';
 import { useState } from 'react';
 
+import { Form } from './form';
 import { ReaderNew } from '@/components/readerNew';
 import { ReaderOld } from '@/components/readerOld';
 // import { useScrollY } from '@/hooks/useScrollY';
@@ -21,35 +22,9 @@ export const TearTest: FC<Props> = ({ defaultCount = 0 }) => {
   const canonical = useWidthSync();
   const [ count, setCount ] = useState(defaultCount);
 
-  const handleCountChange: ChangeEventHandler<HTMLInputElement> = e => {
-    const c = parseInt(e.target.value, 10);
-    if (!isNaN(c) && c >= 0) {
-      setCount(c);
-    }
-  };
-
-  const handlePlusClick = () => {
-    setCount(c => (c < Number.MAX_SAFE_INTEGER ? c + 1 : c));
-  };
-
-  const handleMinusClick = () => {
-    setCount(c => (c > 0 ? c - 1 : c));
-  };
-
   return (
     <>
-      <div className="mb-3">
-        <div className="flex gap-4">
-          <label className="input w-48">
-            <span className="label">Count</span>
-            <input onChange={handleCountChange} value={count} type="number" />
-          </label>
-          <div className="flex gap-2">
-            <button onClick={handlePlusClick} className="btn min-w-12">+</button>
-            <button onClick={handleMinusClick} className="btn min-w-12">-</button>
-          </div>
-        </div>
-      </div>
+      <Form count={count} setCount={setCount} />
       <div className="cellGrid">
         {Array.from(
           { length: count * 2 },
