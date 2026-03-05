@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
-import { TearTest } from './tearTest';
+import { BlankLink } from '@/components/blankLink';
+import { TearTest } from '@/components/tests/tearTest';
 import type { PageComponent } from '@/src/serverComponent';
 
 export const metadata: Metadata = {
@@ -18,7 +20,7 @@ const TearTestPage: PageComponent = async props => {
 
   return (
     <div className="container">
-      <h1>Tear Test</h1>
+      <h1>Tear Test <BlankLink href="/pages/tests/tear"><small>(App Router)</small></BlankLink></h1>
       <TearTest defaultCount={defaultCount} />
     </div>
   );

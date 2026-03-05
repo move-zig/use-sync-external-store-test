@@ -16,19 +16,17 @@ interface Props {
   className?: string;
 }
 
-export const CodeBlock: FC<Props> = ({ code, language = 'typescript', renderer, lineProps, showLineNumbers, className }) => {
-  return (
-    <div className={className}>
-      <SyntaxHighlighter
-        showLineNumbers={showLineNumbers}
-        language={language}
-        style={vscDarkPlus}
-        codeTagProps={{ className: styles.code }}
-        renderer={renderer}
-        lineProps={lineProps}
-      >
-        {code}
-      </SyntaxHighlighter>
-    </div>
-  );
-};
+export const CodeBlock: FC<Props> = ({ code, language = 'typescript', renderer, lineProps, showLineNumbers, className }) => (
+  <div className={className}>
+    <SyntaxHighlighter
+      showLineNumbers={showLineNumbers}
+      language={language}
+      style={vscDarkPlus}
+      codeTagProps={{ className: styles.code }}
+      renderer={renderer}
+      lineProps={lineProps}
+    >
+      {code}
+    </SyntaxHighlighter>
+  </div>
+);

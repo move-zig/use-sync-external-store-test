@@ -1,8 +1,9 @@
 'use client';
 
 import type { ChangeEventHandler, Dispatch, FC, SetStateAction } from 'react';
+import { memo } from 'react';
 
-import type { Type } from './speedTest';
+import type { Type } from '.';
 
 interface Props {
   count: number;
@@ -11,7 +12,7 @@ interface Props {
   onTypeToggle: () => void;
 }
 
-export const Form: FC<Props> = ({ count, setCount, type, onTypeToggle: handleTypeToggle }) => {
+export const Form: FC<Props> = memo(({ count, setCount, type, onTypeToggle: handleTypeToggle }) => {
 
   const handleCountChange: ChangeEventHandler<HTMLInputElement> = e => {
     const c = parseInt(e.target.value, 10);
@@ -45,4 +46,4 @@ export const Form: FC<Props> = ({ count, setCount, type, onTypeToggle: handleTyp
       <button onClick={handleTypeToggle} className="btn">Switch to {type === 'old' ? 'new' : 'old'}</button>
     </>
   );
-};
+});

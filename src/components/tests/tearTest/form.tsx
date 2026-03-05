@@ -1,14 +1,12 @@
-'use client';
-
 import type { ChangeEventHandler, Dispatch, FC, SetStateAction } from 'react';
+import { memo } from 'react';
 
 interface Props {
   count: number;
   setCount: Dispatch<SetStateAction<number>>;
 }
 
-export const Form: FC<Props> = ({ count, setCount }) => {
-
+export const Form: FC<Props> = memo(({ count, setCount }) => {
   const handleCountChange: ChangeEventHandler<HTMLInputElement> = e => {
     const c = parseInt(e.target.value, 10);
     if (!isNaN(c) && c >= 0) {
@@ -17,10 +15,12 @@ export const Form: FC<Props> = ({ count, setCount }) => {
   };
 
   const handlePlusClick = () => {
-    setCount(c => (c < Number.MAX_SAFE_INTEGER ? c + 1 : c));
+    console.log('plus');
+    setCount(c => c + 1);
   };
 
   const handleMinusClick = () => {
+    console.log('minus');
     setCount(c => (c > 0 ? c - 1 : c));
   };
 
@@ -38,4 +38,4 @@ export const Form: FC<Props> = ({ count, setCount }) => {
       </div>
     </div>
   );
-};
+});

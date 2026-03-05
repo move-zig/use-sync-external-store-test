@@ -10,8 +10,8 @@ interface ErrorSpan {
   };
 }
 
-export const createErrorRenderer = (errorSpans: ErrorSpan[]): Renderer => async ({ rows, stylesheet, useInlineStyles }) => {
-  return Promise.all(rows.map(async (row, i) => {
+export const createErrorRenderer = (errorSpans: ErrorSpan[]): Renderer => ({ rows, stylesheet, useInlineStyles }) => {
+  return rows.map(async (row, i) => {
     const errorSpan = errorSpans.find(e => e.row === i);
 
     if (!errorSpan) {
@@ -30,5 +30,5 @@ export const createErrorRenderer = (errorSpans: ErrorSpan[]): Renderer => async 
         })}
       </div>
     );
-  }));
+  });
 };

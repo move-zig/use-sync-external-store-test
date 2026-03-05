@@ -11,12 +11,24 @@
   font-weight: bold;
   border-radius: 0.25rem;
 
-  &.match { background-color: green; }
-  &.mismatch { background-color: red; }
-
   .indicator {
     position: absolute;
     top: 0;
     left: 0;
+  }
+  
+  &.new {
+    .indicator { color: black; }
+  }
+  &.old {
+    .indicator { display: none; }
+  }
+
+  &.match {
+    background-color: green;
+  }
+  
+  &.mismatch {
+    background-color: red;
   }
 }

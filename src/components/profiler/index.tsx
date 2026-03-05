@@ -4,8 +4,9 @@ import type { FC, ProfilerOnRenderCallback, PropsWithChildren } from 'react';
 import { useCallback, useState } from 'react';
 
 import { Inner } from './inner';
+import { RecordsTable } from './recordsTable';
 
-interface Stats {
+export interface ProfilerStats {
   id: string;
   phase: 'mount' | 'nested-update' | 'update';
   actualDuration: number;
@@ -19,10 +20,10 @@ interface Props {
 }
 
 export const Profiler: FC<PropsWithChildren<Props>> = ({ id: profilerId, children }) => {
-  const [ records, setRecords ] = useState<Stats[]>([]);
+  const [ records, setRecords ] = useState<ProfilerStats[]>([]);
 
   const handleRender: ProfilerOnRenderCallback = useCallback((id, phase, actualDuration, baseDuration, startTime, commitTime) => {
-    const stats: Stats = { id, phase, actualDuration, baseDuration, startTime, commitTime };
+    const stats: ProfilerStats = { id, phase, actualDuration, baseDuration, startTime, commitTime };
     console.log(stats);
     setRecords(r => [ ...r, stats ]);
   }, []);
@@ -40,24 +41,7 @@ export const Profiler: FC<PropsWithChildren<Props>> = ({ id: profilerId, childre
         <div className="mt-4">
           <button onClick={handleResetClick} className="btn">Reset Stats</button>
           <h2>Stats</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Phase</th>
-                <th>Duration</th>
-              </tr>
-            </thead>
-            <tbody>
-              {records.map((r, i) => (
-                <tr key={i}>
-                  <td>{r.id}</td>
-                  <td>{r.phase}</td>
-                  <td>{r.actualDuration}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <RecordsTable records={records} />
         </div>
       )}
     </>

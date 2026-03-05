@@ -8,6 +8,7 @@ interface Props {
   onRender: ProfilerOnRenderCallback;
 }
 
+/** Without React compiler, we need this to prevent endless rerenders */
 export const Inner: FC<PropsWithChildren<Props>> = memo(({ id, onRender: handleRender, children }) => (
   <Profiler id={id} onRender={handleRender}>
     {children}

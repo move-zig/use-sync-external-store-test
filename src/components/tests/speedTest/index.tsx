@@ -5,8 +5,8 @@ import { useReducer, useState } from 'react';
 
 import { Form } from './form';
 import { Profiler } from '@/components/profiler';
-import { ReaderNew } from '@/components/readerNew';
-import { ReaderOld } from '@/components/readerOld';
+import { ReaderNew } from '@/components/tests/readerNew';
+import { ReaderOld } from '@/components/tests/readerOld';
 // import { useScrollY } from '@/hooks/useScrollY';
 // import { useScrollYSync } from '@/hooks/useScrollYSync';
 // import { useWidth } from '@/hooks/useWidth';
