@@ -63,7 +63,7 @@ const subscribe = (onStoreChange: () => void) => {
 const getSnapshotCode = `/**
 * Retreives the current value of the store
 *
-* Will get called when the subscription calls onStoreChange
+* Will get called on render and when the subscription calls onStoreChange
 *
 * @returns the current value
 */

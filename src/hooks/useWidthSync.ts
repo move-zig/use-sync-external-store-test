@@ -1,9 +1,7 @@
 import { useSyncExternalStore } from 'react';
 
 const subscribe = (onStoreChange: () => void): (() => void) => {
-  onStoreChange();
   window.addEventListener('resize', onStoreChange, { passive: true });
-
   return () => { window.removeEventListener('resize', onStoreChange); };
 };
 
