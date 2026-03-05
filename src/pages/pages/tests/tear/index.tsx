@@ -9,10 +9,12 @@ interface Props {
   defaultCount: number | null;
 }
 
+const title = `Tear Test - ${siteTitle}`;
+
 const TearTestPage: NextPage<Props> = ({ defaultCount }) => (
   <>
     <Head>
-      <title>Tear Test - {siteTitle}</title>
+      <title>{title}</title>
     </Head>
     <div className="container">
       <h1>Tear Test <BlankLink href="/tests/tear"><small>(Pages Router)</small></BlankLink></h1>
