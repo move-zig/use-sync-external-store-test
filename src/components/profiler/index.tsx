@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC, ProfilerOnRenderCallback, PropsWithChildren } from 'react';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import { Inner } from './inner';
 import { RecordsTable } from './recordsTable';
@@ -19,7 +19,7 @@ interface Props {
   id: string;
 }
 
-export const Profiler: FC<PropsWithChildren<Props>> = ({ id: profilerId, children }) => {
+export const Profiler: FC<PropsWithChildren<Props>> = memo(({ id: profilerId, children }) => {
   const [ records, setRecords ] = useState<ProfilerStats[]>([]);
 
   const handleRender: ProfilerOnRenderCallback = useCallback((id, phase, actualDuration, baseDuration, startTime, commitTime) => {
@@ -28,9 +28,9 @@ export const Profiler: FC<PropsWithChildren<Props>> = ({ id: profilerId, childre
     setRecords(r => [ ...r, stats ]);
   }, []);
 
-  const handleResetClick = () => {
+  const handleResetClick = useCallback(() => {
     setRecords([]);
-  };
+  }, []);
 
   return (
     <>
@@ -46,4 +46,4 @@ export const Profiler: FC<PropsWithChildren<Props>> = ({ id: profilerId, childre
       )}
     </>
   );
-};
+});

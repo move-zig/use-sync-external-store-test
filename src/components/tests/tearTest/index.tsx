@@ -3,11 +3,11 @@
 import type { FC } from 'react';
 import { useDeferredValue, useState } from 'react';
 
-import { Form } from '../form';
+import { CellGrid } from './grid';
+import { CountForm } from '../../countForm';
 // import { useScrollY } from '@/hooks/useScrollY';
 // import { useScrollYSync } from '@/hooks/useScrollYSync';
 // import { useWidth } from '@/hooks/useWidth';
-import { CellGrid } from './grid';
 import { useWidthSync } from '@/hooks/useWidthSync';
 
 interface Props {
@@ -25,8 +25,8 @@ export const TearTest: FC<Props> = ({ defaultCount = 0 }) => {
 
   return (
     <>
-      <Form count={count} setCount={setCount} />
-      <h2>Showing {deferredCount} pair{deferredCount !== 1 ? 's' : ''} of listeners...</h2>
+      <CountForm count={count} setCount={setCount} />
+      <h2><strong>pairs of listeners:</strong> {deferredCount}</h2>
       <CellGrid count={deferredCount} canonical={canonical} />
     </>
   );
