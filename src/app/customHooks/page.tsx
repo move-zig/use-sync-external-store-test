@@ -22,7 +22,10 @@ const HooksPage: PageComponent = () => (
     <h2><span className="font-mono">useWidthSync</span></h2>
     <CodeBlock code={useWidthSyncCode} showLineNumbers />
     <h2>Why Go to This Trouble?</h2>
-    <p><Link href="/tests/tear">Tearing</Link></p>
+    <ul>
+      <li><Link href="/tests/tear">Tearing</Link></li>
+      <li><Link href="/tests/speed">Speed</Link></li>
+    </ul>
   </div>
 );
 
