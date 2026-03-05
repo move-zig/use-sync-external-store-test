@@ -48,9 +48,19 @@ export const useWidth = (): number | undefined => {
 
 const useWidthLibraryCode2 = `import { useWindowListener } from 'use-window-listener';
 
-export const useScaledWidth = (scale: number): number | undefined => {
-  const valueSelector = useCallback((w: Window) => window.innerWidth * scale, [ scale ]);
-  return useWindowListener('resize', valueSelector);
+type Button = 0 | 1 | 2;
+
+export interface Position {
+  x: number;
+  y: number;
+}
+
+export const useMousePosition = (button: Button = 0): Position | undefined => {
+  const valueSelector = useCallback((w: Window, e?: MouseEvent) => {
+    return e?.button === button ? { x: e.clientX, y: e.clientY } : undefined;
+  }, [ button ]);
+
+  return useWindowListener('mousedown', valueSelector, undefined, undefined, { capture: true });
 };`;
 
 const useWidthLibraryCode3 = `import { useWindowListener } from 'use-window-listener';

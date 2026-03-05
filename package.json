@@ -18,18 +18,18 @@
     "@stylistic/eslint-plugin": "^5.9.0",
     "@tailwindcss/postcss": "^4.2.1",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/node": "^20.19.35",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@types/react-syntax-highlighter": "^15.5.13",
     "babel-plugin-react-compiler": "^1.0.0",
     "daisyui": "^5.5.19",
-    "eslint": "^9",
+    "eslint": "^9.39.3",
     "eslint-config-next": "16.1.6",
-    "postcss": "^8.5.6",
+    "postcss": "^8.5.8",
     "sass": "^1.97.3",
     "tailwindcss": "^4.2.1",
-    "typescript": "^5"
+    "typescript": "^5.9.3"
   },
   "browserslist": "> 1%"
 }
