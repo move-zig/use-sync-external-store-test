@@ -4,8 +4,7 @@ import type { FC } from 'react';
 import { useDeferredValue, useReducer, useState } from 'react';
 
 import { Form } from '../form';
-import { ReaderNew } from '../readerNew';
-import { ReaderOld } from '../readerOld';
+import { CellGrid } from './grid';
 import { Profiler } from '@/components/profiler';
 // import { useScrollY } from '@/hooks/useScrollY';
 // import { useScrollYSync } from '@/hooks/useScrollYSync';
@@ -36,12 +35,7 @@ export const SpeedTest: FC<Props> = ({ defaultCount = 0 }) => {
       <button onClick={handleToggle} className="btn">Switch to {type === 'old' ? 'new' : 'old'}</button>
       <h2>Showing {deferredCount} {type} listener{deferredCount !== 1 ? 's' : ''}...</h2>
       <Profiler id={type}>
-        <div className="cellGrid">
-          {Array.from(
-            { length: deferredCount },
-            (_, i) => (type === 'old' ? <ReaderOld key={i} expected={canonical} /> : <ReaderNew key={i} expected={canonical} />),
-          )}
-        </div>
+        <CellGrid count={deferredCount} canonical={canonical} type={type} />
       </Profiler>
     </>
   );
