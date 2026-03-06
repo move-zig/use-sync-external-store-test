@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 
 const TearTestPage: PageComponent = async props => {
   const searchParams = await props.searchParams;
-  const defaultCount = getIntParam(searchParams, 'count');
-  const max = getIntParam(searchParams, 'max');
+  const defaultCount = getIntParam(searchParams.count);
+  const max = getIntParam(searchParams.max);
 
   return (
     <div className="container">

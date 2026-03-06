@@ -17,16 +17,24 @@ export interface ProfilerStats {
 
 interface Props {
   id: string;
+  visual?: boolean;
 }
 
-export const Profiler: FC<PropsWithChildren<Props>> = memo(({ id: profilerId, children }) => {
+/**
+ * Profiles its children and provides a
+ */
+export const Profiler: FC<PropsWithChildren<Props>> = memo(({ id: profilerId, visual = false, children }) => {
   const [ records, setRecords ] = useState<ProfilerStats[]>([]);
   const deferredRecords = useDeferredValue(records);
 
   const handleRender: ProfilerOnRenderCallback = useCallback((id, phase, actualDuration, baseDuration, startTime, commitTime) => {
     const stats: ProfilerStats = { id, phase, actualDuration, baseDuration, startTime, commitTime };
-    setRecords(r => [ ...r, stats ]);
-  }, []);
+    if (visual) {
+      setRecords(r => [ ...r, stats ]);
+    } else {
+      console.log(stats);
+    }
+  }, [ visual ]);
 
   const handleResetClick = useCallback(() => {
     setRecords([]);

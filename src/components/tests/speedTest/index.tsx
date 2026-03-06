@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { useDeferredValue, useReducer, useState } from 'react';
+import { useDeferredValue, useMemo, useReducer, useState } from 'react';
 
 import { CellGrid } from './grid';
 import { CountForm } from '../../countForm';
@@ -28,13 +28,18 @@ export const SpeedTest: FC<Props> = ({ defaultCount = 0, max }) => {
   // const canonical = useWidth();
   const canonical = useWidthSync();
 
+  // otherwise what we're profiling will be recreated for unrelated state changes
+  const grid = useMemo(() => (
+    <CellGrid count={deferredCount} canonical={canonical} type={type} />
+  ), [ deferredCount, canonical, type ]);
+
   return (
     <>
       <CountForm count={count} setCount={setCount} max={max} />
       <button onClick={handleToggle} className="btn">Switch to {type === 'old' ? 'new' : 'old'}</button>
       <h2><strong>{type} listeners</strong>: {deferredCount}</h2>
-      <Profiler id={type}>
-        <CellGrid count={deferredCount} canonical={canonical} type={type} />
+      <Profiler id={type} visual>
+        {grid}
       </Profiler>
     </>
   );

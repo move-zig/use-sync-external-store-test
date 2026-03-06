@@ -1,5 +1,5 @@
-export const getIntParam = (searchParams: Record<string, string | string[] | undefined>, name: string): number | undefined => {
-  const rawValue = Array.isArray(searchParams[name]) ? searchParams[name][0] : searchParams[name];
+export const getIntParam = (param?: string | string[]): number | undefined => {
+  const rawValue = Array.isArray(param) ? param[0] : param;
   if (typeof rawValue === 'undefined') {
     return;
   }

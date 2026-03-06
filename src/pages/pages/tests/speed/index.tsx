@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { BlankLink } from '@/components/blankLink';
 import { SpeedTest } from '@/components/tests/speedTest';
+import { getIntParam } from '@/src/lib/getIntParam';
 import { siteTitle } from '@/src/pages/_app';
 
 interface Props {
@@ -16,6 +17,7 @@ const SpeedTestPage: NextPage<Props> = ({ defaultCount, max = 500 }) => (
   <>
     <Head>
       <title>{title}</title>
+      <link rel="canonical" href="/pages/tests/speed" />
     </Head>
     <div className="container">
       <h1>Speed Test <BlankLink href="/tests/speed"><small>(Pages Router)</small></BlankLink></h1>
@@ -28,19 +30,13 @@ export default SpeedTestPage;
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export const getServerSideProps: GetServerSideProps<Props> = async req => {
-  const countParam = req.query.count;
-  const maxParam = req.query.max;
+  const defaultCount = getIntParam(req.query.count);
+  const max = getIntParam(req.query.max);
 
-  const defaultCount = typeof countParam === 'string' ? parseInt(countParam, 10) : undefined;
-  const max = typeof maxParam === 'string' ? parseInt(maxParam, 10) : undefined;
+  const props: Props = {
+    ...(typeof defaultCount !== 'undefined' && { defaultCount }),
+    ...(typeof max !== 'undefined' && { max }),
+  };
 
-  const props: Props = {};
-
-  if (typeof defaultCount !== 'undefined') {
-    props.defaultCount = defaultCount;
-  }
-  if (typeof max !== 'undefined') {
-    props.max = max;
-  }
   return { props };
 };
