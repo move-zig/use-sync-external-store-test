@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC, ProfilerOnRenderCallback, PropsWithChildren } from 'react';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useDeferredValue, useState } from 'react';
 
 import { Inner } from './inner';
 import { RecordsTable } from './recordsTable';
@@ -21,10 +21,10 @@ interface Props {
 
 export const Profiler: FC<PropsWithChildren<Props>> = memo(({ id: profilerId, children }) => {
   const [ records, setRecords ] = useState<ProfilerStats[]>([]);
+  const deferredRecords = useDeferredValue(records);
 
   const handleRender: ProfilerOnRenderCallback = useCallback((id, phase, actualDuration, baseDuration, startTime, commitTime) => {
     const stats: ProfilerStats = { id, phase, actualDuration, baseDuration, startTime, commitTime };
-    console.log(stats);
     setRecords(r => [ ...r, stats ]);
   }, []);
 
@@ -37,12 +37,8 @@ export const Profiler: FC<PropsWithChildren<Props>> = memo(({ id: profilerId, ch
       <Inner id={profilerId} onRender={handleRender}>
         {children}
       </Inner>
-      {records.length > 0 && (
-        <div className="mt-4">
-          <button onClick={handleResetClick} className="btn">Reset Stats</button>
-          <h2>Stats</h2>
-          <RecordsTable records={records} />
-        </div>
+      {deferredRecords.length > 0 && (
+        <RecordsTable records={deferredRecords} onResetClick={handleResetClick} />
       )}
     </>
   );

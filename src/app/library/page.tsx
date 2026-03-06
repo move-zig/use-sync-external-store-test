@@ -27,7 +27,6 @@ const LibraryPage: PageComponent = () => (
     <p>Same API, but uses <span className="font-mono">useSyncExternalStore</span> under the hood.</p>
     <h2>Other Built-in Hooks</h2>
     <HooksTable />
-    <p className="text-m"><strong>*</strong> Like the React docs example <Link target="_blank" rel="noopener" href="https://react.dev/reference/react/useSyncExternalStore">https://react.dev/reference/react/useSyncExternalStore</Link></p>
     <h3>Example</h3>
     <CodeBlock code={otherHookExample} showLineNumbers className="mb-5" />
     <div className="alert alert-outline alert-info">

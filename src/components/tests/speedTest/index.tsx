@@ -15,9 +15,10 @@ export type Type = 'old' | 'new';
 
 interface Props {
   defaultCount?: number;
+  max?: number;
 }
 
-export const SpeedTest: FC<Props> = ({ defaultCount = 0 }) => {
+export const SpeedTest: FC<Props> = ({ defaultCount = 0, max }) => {
   const [ count, setCount ] = useState(defaultCount);
   const deferredCount = useDeferredValue(count);
   const [ type, handleToggle ] = useReducer<Type, []>(v => (v === 'old' ? 'new' : 'old'), 'old');
@@ -29,7 +30,7 @@ export const SpeedTest: FC<Props> = ({ defaultCount = 0 }) => {
 
   return (
     <>
-      <CountForm count={count} setCount={setCount} />
+      <CountForm count={count} setCount={setCount} max={max} />
       <button onClick={handleToggle} className="btn">Switch to {type === 'old' ? 'new' : 'old'}</button>
       <h2><strong>{type} listeners</strong>: {deferredCount}</h2>
       <Profiler id={type}>

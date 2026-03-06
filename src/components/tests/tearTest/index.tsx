@@ -12,9 +12,10 @@ import { useWidthSync } from '@/hooks/useWidthSync';
 
 interface Props {
   defaultCount?: number;
+  max?: number;
 }
 
-export const TearTest: FC<Props> = ({ defaultCount = 0 }) => {
+export const TearTest: FC<Props> = ({ defaultCount = 0, max }) => {
   const [ count, setCount ] = useState(defaultCount);
   const deferredCount = useDeferredValue(count);
 
@@ -25,7 +26,7 @@ export const TearTest: FC<Props> = ({ defaultCount = 0 }) => {
 
   return (
     <>
-      <CountForm count={count} setCount={setCount} />
+      <CountForm count={count} setCount={setCount} max={max} />
       <h2><strong>pairs of listeners:</strong> {deferredCount}</h2>
       <CellGrid count={deferredCount} canonical={canonical} />
     </>
