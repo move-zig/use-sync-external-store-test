@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { useDeferredValue, useState } from 'react';
 
 import { CellGrid } from './grid';
-import { CountForm } from '../../countForm';
+import { NumberForm } from '../../numberForm';
 // import { useScrollY } from '@/hooks/useScrollY';
 // import { useScrollYSync } from '@/hooks/useScrollYSync';
 // import { useWidth } from '@/hooks/useWidth';
@@ -26,7 +26,7 @@ export const TearTest: FC<Props> = ({ defaultCount = 0, max }) => {
 
   return (
     <>
-      <CountForm count={count} setCount={setCount} max={max} />
+      <NumberForm value={count} setValue={setCount} max={max} />
       <h2><strong>pairs of listeners:</strong> {deferredCount}</h2>
       <CellGrid count={deferredCount} canonical={canonical} />
     </>

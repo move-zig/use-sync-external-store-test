@@ -4,7 +4,7 @@ import type { FC } from 'react';
 import { useDeferredValue, useMemo, useReducer, useState } from 'react';
 
 import { CellGrid } from './grid';
-import { CountForm } from '../../countForm';
+import { NumberForm } from '../../numberForm';
 import { Profiler } from '@/components/profiler';
 // import { useScrollY } from '@/hooks/useScrollY';
 // import { useScrollYSync } from '@/hooks/useScrollYSync';
@@ -35,7 +35,7 @@ export const SpeedTest: FC<Props> = ({ defaultCount = 0, max }) => {
 
   return (
     <>
-      <CountForm count={count} setCount={setCount} max={max} />
+      <NumberForm value={count} setValue={setCount} max={max} />
       <button onClick={handleToggle} className="btn">Switch to {type === 'old' ? 'new' : 'old'}</button>
       <h2><strong>{type} listeners</strong>: {deferredCount}</h2>
       <Profiler id={type} visual>
