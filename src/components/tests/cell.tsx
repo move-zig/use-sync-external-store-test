@@ -13,7 +13,7 @@ interface Props {
 
 export const Cell: FC<Props> = ({ type, measured, match }) => (
   <div className={`${styles.cell} ${styles[type]} ${match ? styles.match : styles.mismatch}`}>
-    <Triangle width="33%" className={styles.indicator} />
+    <Triangle width="33%" className={styles.indicator} showStar={type === 'new'} />
     <div>{measured}</div>
   </div>
 );
