@@ -21,13 +21,14 @@ const useSyncExternalStorePage: PageComponent = () => {
         <li>From a mutable value or an event from a browser API</li>
       </ul>
       <h2>Parameters</h2>
-      <p>Two required parameters and one optional one. All three should be <em>referentially stable</em>.</p>
+      <p>Two required parameters and one optional one:</p>
       <CodeBlock code={typeDefinition} />
       <h3>Parameter 1: <span className="font-mono">subscribe</span> Function</h3>
       <CodeBlock code={subscribeCode} />
-      <h3>Parameter 2: <span className="font-mono">getSnapshot</span></h3>
+      <p>Should be <em>referentially stable</em>.</p>
+      <h3>Parameter 2: <span className="font-mono">getSnapshot</span> Function</h3>
       <CodeBlock code={getSnapshotCode} />
-      <h3>Parameter 3: <span className="font-mono">getServerSnapshot</span> (Optional)</h3>
+      <h3>Parameter 3: <span className="font-mono">getServerSnapshot</span> Function (Optional)</h3>
       <CodeBlock code={getServerSnapshotCode} />
       <h2>Putting it All Together</h2>
       <CodeBlock code={allTogether} showLineNumbers />
@@ -41,7 +42,7 @@ export default useSyncExternalStorePage;
 const typeDefinition = `useSyncExternalStore<T>(
   subscribe: (onStoreChange: () => void) => () => void,
   getSnapshot: () => T,
-  getServerSnapshot?: (() => T) | undefined
+  getServerSnapshot?: (() => T) | undefined,
 ): T`;
 
 const subscribeCode = `/**
@@ -54,14 +55,14 @@ const subscribeCode = `/**
 */
 const subscribe = (onStoreChange: () => void) => {
   // for example, have the hook call getSnapshot every 10 seconds
-  const id = setInterval(() => onStoreChange, 10_000);
+  const id = setInterval(onStoreChange, 10_000);
 
   // don't forget to clean up
-  return () => { clearInterval(id); }
+  return () => { clearInterval(id); };
 }`;
 
 const getSnapshotCode = `/**
-* Retreives the current value of the store
+* Retrieves the current value of the store
 *
 * Will get called on render and when the subscription calls onStoreChange
 *
@@ -70,7 +71,7 @@ const getSnapshotCode = `/**
 const getSnapshot = () => ... // the current value`;
 
 const getServerSnapshotCode = `/**
-* Retreives the initial value of the data in the store
+* Retrieves the initial value of the data in the store
 *
 * Will get called during SSR and during hydration of server-rendered content
 *
@@ -82,9 +83,6 @@ const allTogether = `import type { FC } from 'react';
 import { useSyncExternalStore } from 'react';
 
 const subscribe = (onStoreChange: () => void) => {
-  // have the hook call getSnapshot when the subscription is first created  
-  onStoreChange();
-
   // have the hook call getSnapshot on resize events
   window.addEventListener('resize', onStoreChange, { passive: true });
 

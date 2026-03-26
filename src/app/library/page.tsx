@@ -39,13 +39,14 @@ export default LibraryPage;
 
 const useWidthLibraryCode = `import { useWindowListener } from 'use-window-listener';
 
-const valueSelector = (w: Window) => window.innerWidth; // module scope for stable reference
+const valueSelector = (w: Window) => w.innerWidth; // module scope for stable reference
 
 export const useWidth = (): number | undefined => {
   return useWindowListener('resize', valueSelector);
 };`;
 
-const useWidthLibraryCode2 = `import { useWindowListener } from 'use-window-listener';
+const useWidthLibraryCode2 = `import { useCallback } from 'react';
+import { useWindowListener } from 'use-window-listener';
 
 type Button = 0 | 1 | 2;
 

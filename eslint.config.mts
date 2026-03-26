@@ -7,6 +7,13 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
 const eslintConfig = defineConfig([
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+  },
   eslint.configs.recommended,
   reactHooks.configs.flat['recommended-latest'],
   tseslint.configs.strictTypeChecked,
@@ -169,6 +176,7 @@ const eslintConfig = defineConfig([
       '@typescript-eslint/method-signature-style': 'error',
       '@typescript-eslint/no-confusing-void-expression': [ 'error', { ignoreArrowShorthand: true } ],
       '@typescript-eslint/no-floating-promises': 'error',
+      '@typescript-eslint/no-unnecessary-type-arguments': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       '@typescript-eslint/only-throw-error': 'error',
       '@typescript-eslint/prefer-for-of': 'error',

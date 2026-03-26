@@ -7,11 +7,11 @@ import type { PageComponent } from '@/src/serverComponent';
 const HomePage: PageComponent = () => (
   <div className="container">
     <h1>Listening for DOM Events</h1>
-    <p>Listen for:</p>
+    <p>Examples:</p>
     <ul>
       <li>resize events on <strong className="font-mono">window</strong> and use <strong className="font-mono">.innerWidth</strong></li>
       <li>scroll events on <strong className="font-mono">window</strong> and use <strong className="font-mono">.scrollY</strong></li>
-      <li>change events on a MediaQueryList and use <strong className="font-mono">.match</strong></li>
+      <li>change events on a MediaQueryList and use <strong className="font-mono">.matches</strong></li>
     </ul>
 
     <h2>Setting the Initial State</h2>
@@ -24,12 +24,13 @@ const HomePage: PageComponent = () => (
     <pre style={{ fontSize: '0.875rem', whiteSpace: 'pre-wrap', lineHeight: 1.5 }}>{errorMessage}</pre>
 
     <h2>So What Do We Do?</h2>
-    <p>If we don't call <span className="font-mono">setWidth</span> we won't know the screen width until a resize event is fired.</p>
+    <p>If we don't call <span className="font-mono">setWidth</span> we won't know the screen width until a resize event fires.</p>
     <h3>Avoid a Synchronous Call</h3>
     <CodeBlock code={solution1} />
-    <p>But it's a hack.</p>
+    <p>Possible, but it marks the update as non-urgent just to address the linter error.</p>
     <h3>Silence the Error</h3>
     <CodeBlock code={solution2} />
+    <p>Sometimes the correct thing to do when you have a deliberate, one-time sync.</p>
     <h3>Use a Different Hook</h3>
     <p><Link href="/theHook" className="link link-primary">useSyncExternalStore</Link></p>
   </div>
@@ -39,7 +40,7 @@ export default HomePage;
 
 const initialState = `useState(window.innerWidth); // ✘ window is undefined
 useState(() => (typeof window === 'undefined' ? undefined : window.innerWidth)); // ✘ hydration mismatch
-useState<number | undefined>(undefined); // ✔`;
+useState<number>(); // ✔ undefined`;
 
 const updating = `// window is always defined inside useEffect 
 useEffect(() => {
